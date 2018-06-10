@@ -1,0 +1,15 @@
+.button{
+    height: 45px;
+    width: 45px;
+    background-color: #282828;
+    border: 0;
+    color: #FFFFFF;
+}
+.number{
+    background-color: #C8C9BD;
+    color: #282828;
+    border: 0;
+    height: 35px;
+    width: 180px;
+}
+
