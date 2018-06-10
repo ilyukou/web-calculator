@@ -5,7 +5,8 @@
     border: 0;
     color: #FFFFFF;
 }
-.number{
+#inputNumber{
+    pointer-events:none;
     background-color: #C8C9BD;
     color: #282828;
     border: 0;
