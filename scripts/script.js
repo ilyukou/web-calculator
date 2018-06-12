@@ -1,68 +1,151 @@
-var inputValue = document.getElementById("inputNumber");
+var input = [0,"",0,0]; // [number 1, operation, number 2, result]
+var i = 0; // num i , num1 -> i=0 , num2 -> i=2
 
-inputValue.value = 0; // default setting
+input[i] = document.getElementById("inputNumber");
+input[i].value = 0;
 
-function writeNumber(number) {
-    number = (typeof number !== 'undefined') ?  number : 0;
-    inputValue.value = number;
-}
 function getValue(obj) {
-    if (getType(obj.value) === 'number'){
-        obj.value = + obj.value //convert to number
-    } else if (getType(obj.value) === 'string'){
-        obj.value = getSymbol();
-    }
-    return writeNumber(obj.value)
-}
 
-function getType(objValue) {
-    if ( typeof objValue === 'number'){
-        return 'number';
-    } else if ( typeof objValue === 'string'){
-        return 'string'
+    var compare = + obj.value; //convert to number; string -> convert -> NaN .
+
+    if (isNaN(compare)){
+        // true if obj.value - string
+        symbolOperation(obj.value);
     } else {
-        return 'error type'
+        // false if obj.value - number
+        numberOperation(obj.value);
     }
 }
-function getSymbol() {
 
-    switch(objValue){
 
-        // Symbol operation
+function numberOperation(number) {
+
+        number.toString();
+        input[i].value.toString();
+        input[i].value += number;
+
+}
+
+function symbolOperation(symbol){
+
+    symbol.toString();
+    input[i].value.toString();
+
+    switch (symbol){
+
         case "C":
-            return operation('symbol',objValue);
+            input[i].value = 0;
+            break;
+
         case ".":
-            return operation('symbol',objValue);
+            input[i].value += '.';
+            break;
+
         case "del":
-            return operation('symbol',objValue);
+            input[i].value = input[i].value.substring(0, input[i].value.length - 1); //del last num
+            break;
+
 
         // Math operation
         case "-":
-            return operation('math',objValue);
-        case "+":
-            return operation('math',objValue);
-        case "^":
-            return operation('math',objValue);
-        case "%":
-            return operation('math',objValue);
-        case "/":
-            return operation('math',objValue);
-        case "x":
-            return operation('math',objValue);
-        case "=":
-            return operation('math',objValue);
-    }
-}
-function operation(operationType, symbol) {
-    if (operationType === 'math'){
-        mathOperation(symbol);
-    }else if (operationType ==='symbol'){
-        symbolOperation(symbol);
-    }
-}
-function mathOperation(number) {
+            input[1] = "-";
+            input[i] = input[i].value;
+            i = i+2;
+            // num 2 input
+            input[i] =  document.getElementById("inputNumber");
+            input[i].value = 0;
+            break;
 
+        case "+":
+            input[1] = "+";
+            input[i] = input[i].value;
+            i = i+2;
+            // num 2 input
+            input[i] =  document.getElementById("inputNumber");
+            input[i].value = 0;
+            break;
+
+        case "^":
+            input[1] = "^";
+            input[i] = input[i].value;
+            i = i+2;
+            // num 2 input
+            input[i] =  document.getElementById("inputNumber");
+            input[i].value = 0;
+            break;
+
+        case "%":
+            input[1] = "%";
+            input[i] = input[i].value;
+            i = i + 2;
+            // num 2 input
+            input[2] =  document.getElementById("inputNumber");
+            input[2].value = 0;
+            break;
+
+        case "/":
+            input[1] = "/";
+            input[i] = input[i].value;
+            i = i + 2;
+            // num 2 input
+            input[i] =  document.getElementById("inputNumber");
+            input[i].value = 0;
+            break;
+
+        case "x":
+            input[1] = "x";
+            input[i] = input[i].value;
+            i = i + 2;
+            // num 2 input
+            input[i] =  document.getElementById("inputNumber");
+            input[i].value = 0;
+            break;
+
+        case "=":
+            input[i] = input[i].value;
+            mathOperation();
+            break;
+    }
 }
-function symbolOperation(symbol) {
+
+function mathOperation(objValue) {
+    console.log('mathOperation');
+
+    var num1 = input[0];
+    var num2 = input[2];
+    var oper = input[1];
+    var res  = null;
+    var resInput = document.getElementById("inputNumber");
+    num1 = + num1;
+    num2 = + num2;
+
+
+    switch(oper){
+        case "-":
+            res = num1 - num2;
+            resInput.value = res;
+            break;
+        case "+":
+            res = num1 + num2;
+            resInput.value = res;
+            break;
+        case "^":
+            res = Math.pow(num1, num2);
+            resInput.value = res;
+            break;
+        case "%":
+            res = num1 % num2;
+            resInput.value = res;
+            break;
+        case "/":
+            res = num1 / num2;
+            resInput.value = res;
+            break;
+        case "x":
+            res = num1 * num2;
+            resInput.value = res;
+            break;
+
+    }
 
 }

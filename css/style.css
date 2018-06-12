@@ -1,3 +1,7 @@
+@font-face {
+    font-family: DINPro;
+    src: url("../fonts/DINPro.otf");
+}
 .button{
     height: 45px;
     width: 45px;
@@ -12,5 +16,9 @@
     border: 0;
     height: 35px;
     width: 180px;
+
+    text-align: center;
+    font-family: DINPro;
+    font-size: 24px;
 }
 
