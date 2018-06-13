@@ -17,7 +17,6 @@ function getValue(obj) {
     }
 }
 
-
 function numberOperation(number) {
 
         number.toString();
@@ -151,6 +150,44 @@ function symbolOperation(symbol){
             input[i] =  document.getElementById("inputNumber");
             input[i].value = 0;
             break;
+
+        // ver 1.0.2
+        case "asin":
+            input[1] = "asin";
+            input[i] = input[i].value;
+            i = i+2;
+            // num 2 input
+            input[i] =  document.getElementById("inputNumber");
+            input[i].value = 0;
+            break;
+
+        case "acos":
+            input[1] = "acos";
+            input[i] = input[i].value;
+            i = i+2;
+            // num 2 input
+            input[i] =  document.getElementById("inputNumber");
+            input[i].value = 0;
+            break;
+
+        case "atan":
+            input[1] = "atan";
+            input[i] = input[i].value;
+            i = i   +2;
+            // num 2 input
+            input[i] =  document.getElementById("inputNumber");
+            input[i].value = 0;
+            break;
+
+        case "sqrt":
+            input[1] = "sqrt";
+            input[i] = input[i].value;
+            i = i+2;
+            // num 2 input
+            input[i] =  document.getElementById("inputNumber");
+            input[i].value = 0;
+            break;
+
     }
 }
 
@@ -215,6 +252,27 @@ function mathOperation(objValue) {
 
         case "e":
             res = Math.exp(num2);
+            resInput.value = res;
+            break;
+
+        // ver 1.0.2
+        case "asin":
+            res = Math.asin(num2);
+            resInput.value = res;
+            break;
+
+        case "acos":
+            res = Math.acos(num2);
+            resInput.value = res;
+            break;
+
+        case "atan":
+            res = Math.atan(num2);
+            resInput.value = res;
+            break;
+
+        case "sqrt":
+            res = Math.sqrt(num2);
             resInput.value = res;
             break;
 
