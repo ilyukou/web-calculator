@@ -32,7 +32,7 @@ function symbolOperation(symbol){
     input[i].value.toString();
 
     switch (symbol){
-
+        // symbol
         case "C":
             input[i].value = 0;
             break;
@@ -128,7 +128,7 @@ function symbolOperation(symbol){
         case "tan":
             input[1] = "tan";
             input[i] = input[i].value;
-            i = i+2;
+            i = i   +2;
             // num 2 input
             input[i] =  document.getElementById("inputNumber");
             input[i].value = 0;
